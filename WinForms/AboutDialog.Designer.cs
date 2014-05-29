@@ -1,4 +1,4 @@
-﻿namespace SoulverDotNet.Forms
+﻿namespace SoulverDotNet.WinForms
 {
 	partial class AboutDialog
 	{

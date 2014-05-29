@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace SoulverDotNet.Parser
+namespace SoulverDotNet.Core
 {
     public static class QuestionParser
     {

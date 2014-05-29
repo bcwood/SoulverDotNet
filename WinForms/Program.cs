@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using SoulverDotNet.Forms;
 
-namespace SoulverDotNet
+namespace SoulverDotNet.WinForms
 {
     static class Program
     {

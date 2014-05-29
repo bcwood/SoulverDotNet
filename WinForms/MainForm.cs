@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using SoulverDotNet.Parser;
+using SoulverDotNet.Core;
 
-namespace SoulverDotNet.Forms
+namespace SoulverDotNet.WinForms
 {
     public partial class MainForm : Form
     {

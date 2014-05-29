@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Windows.Forms;
 
-namespace SoulverDotNet.Forms
+namespace SoulverDotNet.WinForms
 {
 	partial class AboutDialog : Form
 	{

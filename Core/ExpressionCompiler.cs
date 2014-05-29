@@ -1,7 +1,7 @@
 ﻿using System;
 using dotMath;
 
-namespace SoulverDotNet.Parser
+namespace SoulverDotNet.Core
 {
     public static class ExpressionCompiler
     {

@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SoulverDotNet.Parser;
+using SoulverDotNet.Core;
 
 namespace SoulverDotNet.Tests
 {
