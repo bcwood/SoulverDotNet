@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ExpressionCompiler.cs" />
-    <Compile Include="LineVariable.cs" />
+    <Compile Include="MathExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionParser.cs" />
     <Compile Include="ValueVariable.cs" />

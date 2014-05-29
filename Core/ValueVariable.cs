@@ -10,28 +10,26 @@ namespace SoulverDotNet.Core
         public string Key { get; private set; }
         public double Value { get; private set; }
 
-        public static bool IsMatch(string s)
+        public static bool IsMatch(string expression)
         {
-            if (!Regex.IsMatch(s, REGEX_PATTERN))
+            if (!Regex.IsMatch(expression, REGEX_PATTERN))
                 return false;
-            else
-            {
-                int index = s.IndexOf("=") + 1;
-                string expression = s.Substring(index).Trim();
+	        
+			int index = expression.IndexOf("=") + 1;
+	        string parsedExpression = expression.Substring(index).Trim();
 
-                return ExpressionCompiler.IsMatch(expression);
-            }
+	        return MathExpression.IsMatch(parsedExpression);
         }
 
-        public static ValueVariable Parse(string s)
+        public static ValueVariable Parse(string expression)
         {
-            string[] parts = s.Split(new[] {'='}, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = expression.Split(new[] {'='}, StringSplitOptions.RemoveEmptyEntries);
 
-            var v = new ValueVariable();
-            v.Key = parts[0].Trim();
-            v.Value = (double) ExpressionCompiler.Parse(parts[1].Trim());
+            var variable = new ValueVariable();
+            variable.Key = parts[0].Trim();
+            variable.Value = MathExpression.Parse(parts[1].Trim());
 
-            return v;
+			return variable;
         }
     }
 }

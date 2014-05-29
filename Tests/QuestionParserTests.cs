@@ -28,7 +28,9 @@ namespace SoulverDotNet.Tests
             {
                 "3 + 7", 
                 "line1 * 2",
-                "(line1 + line2) / 2"
+                "(line1 + line2) / 2",
+				"",
+				"line3"
             };
 
             string[] answers = QuestionParser.Parse(questions);
@@ -36,6 +38,8 @@ namespace SoulverDotNet.Tests
             Assert.AreEqual("10", answers[0]);
             Assert.AreEqual("20", answers[1]);
             Assert.AreEqual("15", answers[2]);
+			Assert.AreEqual("", answers[3]);
+			Assert.AreEqual("15", answers[4]);
         }
 
         [Test]

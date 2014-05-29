@@ -7,7 +7,7 @@ namespace SoulverDotNet.WinForms
     public partial class MainForm : Form
     {
         private const int LINE_NUMBERS_PANEL_WIDTH = 25;
-        private const int ANSWERS_PANEL_WIDTH = 200;
+        private const int ANSWERS_PANEL_WIDTH = 150;
 
         public MainForm()
         {

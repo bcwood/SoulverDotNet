@@ -4,49 +4,39 @@ namespace SoulverDotNet.Core
 {
     public static class QuestionParser
     {
-        private static List<string> _answers;
-
         public static string[] Parse(string[] questions)
         {
-            ExpressionCompiler.Reset();
-            _answers = new List<string>();
+            MathExpression.Reset();
+	        var answers = new string[questions.Length];
 
-            foreach (string question in questions)
-            {
-                _answers.Add(Parse(question).ToString());
-            }
+	        for (int i = 0; i < questions.Length; i++)
+	        {
+		        double? answer = Parse(questions[i]);
+				answers[i] = answer.ToString();
 
-            return _answers.ToArray();
+				if (answer != null)
+					MathExpression.AddVariable("line" + (i + 1), answer.Value);
+	        }
+
+	        return answers;
         }
 
-        internal static double? Parse(string question)
+	    private static double? Parse(string question)
         {
             if (ValueVariable.IsMatch(question))
             {
                 var variable = ValueVariable.Parse(question);
-                ExpressionCompiler.AddVariable(variable.Key, variable.Value);
+                MathExpression.AddVariable(variable.Key, variable.Value);
                 return variable.Value;
             }
-            else if (LineVariable.IsMatch(question))
+            else if (MathExpression.IsMatch(question))
             {
-                return LineVariable.Parse(question);
-            }
-            else if (ExpressionCompiler.IsMatch(question))
-            {
-                return ExpressionCompiler.Parse(question);
+                return MathExpression.Parse(question);
             }
             else
             {
                 return null;
             }
-        }
-
-        public static string GetAnswerAt(int index)
-        {
-            if (index >= _answers.Count)
-                return null;
-
-            return _answers[index];
         }
     }
 }
