@@ -70,5 +70,39 @@ namespace SoulverDotNet.Tests
 
             Assert.AreEqual("9.42", answers[2]);
         }
+
+		[Test]
+		public void Parse_PercentOf()
+		{
+			var questions = new string[]
+            {
+                "25% of $100",
+                "30% of 50",
+				"12.5% of 25.5"
+            };
+
+			string[] answers = QuestionParser.Parse(questions);
+
+			Assert.AreEqual((100 * 25 / 100).ToString(), answers[0]);
+			Assert.AreEqual((50 * 30 / 100).ToString(), answers[1]);
+			Assert.AreEqual((25.5 * 12.5 / 100).ToString(), answers[2]);
+		}
+
+		[Test]
+		public void Parse_PercentOff()
+		{
+			var questions = new string[]
+            {
+				"25% off $100",
+                "30% off 50",
+				"12.5% off 25.5"
+            };
+
+			string[] answers = QuestionParser.Parse(questions);
+
+			Assert.AreEqual((100 - (100 * 25 / 100)).ToString(), answers[0]);
+			Assert.AreEqual((50 - (50 * 30 / 100)).ToString(), answers[1]);
+			Assert.AreEqual((25.5 - (25.5 * 12.5 / 100)).ToString(), answers[2]);
+		}
     }
 }

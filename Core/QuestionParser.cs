@@ -23,20 +23,20 @@ namespace SoulverDotNet.Core
 
 	    private static double? Parse(string question)
         {
-            if (VariableExpression.IsMatch(question))
-            {
-                KeyValuePair<string, double> variable = VariableExpression.Parse(question);
-                MathExpression.AddVariable(variable.Key, variable.Value);
-                return variable.Value;
-            }
-            else if (MathExpression.IsMatch(question))
-            {
-                return MathExpression.Parse(question);
-            }
-            else
-            {
-                return null;
-            }
+			if (VariableExpression.IsMatch(question))
+			{
+				KeyValuePair<string, double> variable = VariableExpression.Parse(question);
+				MathExpression.AddVariable(variable.Key, variable.Value);
+				return variable.Value;
+			}
+			else if (PercentOfExpression.IsMatch(question))
+				return PercentOfExpression.Parse(question);
+			else if (PercentOffExpression.IsMatch(question))
+				return PercentOffExpression.Parse(question);
+			else if (MathExpression.IsMatch(question))
+				return MathExpression.Parse(question);
+			else
+				return null;
         }
     }
 }

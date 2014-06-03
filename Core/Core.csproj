@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MathExpression.cs" />
+    <Compile Include="PercentOfExpression.cs" />
+    <Compile Include="PercentOffExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionParser.cs" />
     <Compile Include="VariableExpression.cs" />
