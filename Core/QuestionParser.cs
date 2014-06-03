@@ -23,9 +23,9 @@ namespace SoulverDotNet.Core
 
 	    private static double? Parse(string question)
         {
-            if (ValueVariable.IsMatch(question))
+            if (VariableExpression.IsMatch(question))
             {
-                var variable = ValueVariable.Parse(question);
+                KeyValuePair<string, double> variable = VariableExpression.Parse(question);
                 MathExpression.AddVariable(variable.Key, variable.Value);
                 return variable.Value;
             }

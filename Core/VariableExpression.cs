@@ -1,14 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace SoulverDotNet.Core
 {
-    public class ValueVariable
+    public static class VariableExpression
     {
         private const string REGEX_PATTERN = "^[a-zA-Z0-9]+\\s*=.+$";
-
-        public string Key { get; private set; }
-        public double Value { get; private set; }
 
         public static bool IsMatch(string expression)
         {
@@ -21,15 +19,11 @@ namespace SoulverDotNet.Core
 	        return MathExpression.IsMatch(parsedExpression);
         }
 
-        public static ValueVariable Parse(string expression)
+		public static KeyValuePair<string, double> Parse(string expression)
         {
             string[] parts = expression.Split(new[] {'='}, StringSplitOptions.RemoveEmptyEntries);
 
-            var variable = new ValueVariable();
-            variable.Key = parts[0].Trim();
-            variable.Value = MathExpression.Parse(parts[1].Trim());
-
-			return variable;
+			return new KeyValuePair<string, double>(parts[0].Trim(), MathExpression.Parse(parts[1].Trim()));
         }
     }
 }
