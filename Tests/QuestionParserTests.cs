@@ -17,8 +17,8 @@ namespace SoulverDotNet.Tests
 
             string[] answers = QuestionParser.Parse(questions);
 
-            Assert.AreEqual("10", answers[0]);
-            Assert.AreEqual("20", answers[1]);
+            Assert.That(answers[0], Is.EqualTo("10"));
+			Assert.That(answers[1], Is.EqualTo("20"));
         }
 
         [Test]
@@ -35,11 +35,11 @@ namespace SoulverDotNet.Tests
 
             string[] answers = QuestionParser.Parse(questions);
 
-            Assert.AreEqual("10", answers[0]);
-            Assert.AreEqual("20", answers[1]);
-            Assert.AreEqual("15", answers[2]);
-			Assert.AreEqual("", answers[3]);
-			Assert.AreEqual("15", answers[4]);
+			Assert.That(answers[0], Is.EqualTo("10"));
+			Assert.That(answers[1], Is.EqualTo("20"));
+			Assert.That(answers[2], Is.EqualTo("15"));
+			Assert.That(answers[3], Is.EqualTo(""));
+			Assert.That(answers[4], Is.EqualTo("15"));
         }
 
         [Test]
@@ -53,8 +53,8 @@ namespace SoulverDotNet.Tests
 
             string[] answers = QuestionParser.Parse(questions);
 
-            Assert.AreEqual("6.28", answers[1]);
-        }
+            Assert.That(answers[1], Is.EqualTo("6.28"));
+		}
 
         [Test]
         public void Parse_MultiLine_MultiValueVariables()
@@ -68,8 +68,8 @@ namespace SoulverDotNet.Tests
 
             string[] answers = QuestionParser.Parse(questions);
 
-            Assert.AreEqual("9.42", answers[2]);
-        }
+            Assert.That(answers[2], Is.EqualTo("9.42"));
+		}
 
 		[Test]
 		public void Parse_PercentOf()
@@ -83,9 +83,10 @@ namespace SoulverDotNet.Tests
 
 			string[] answers = QuestionParser.Parse(questions);
 
-			Assert.AreEqual((100 * 25 / 100).ToString(), answers[0]);
-			Assert.AreEqual((50 * 30 / 100).ToString(), answers[1]);
-			Assert.AreEqual((25.5 * 12.5 / 100).ToString(), answers[2]);
+			Assert.That(answers[0], Is.EqualTo((100 * 25 / 100).ToString()));
+			Assert.That(answers[1], Is.EqualTo((50 * 30 / 100).ToString()));
+			Assert.That(answers[2], Is.EqualTo((25.5 * 12.5 / 100).ToString()));
+		}
 		}
 
 		[Test]
@@ -100,9 +101,9 @@ namespace SoulverDotNet.Tests
 
 			string[] answers = QuestionParser.Parse(questions);
 
-			Assert.AreEqual((100 - (100 * 25 / 100)).ToString(), answers[0]);
-			Assert.AreEqual((50 - (50 * 30 / 100)).ToString(), answers[1]);
-			Assert.AreEqual((25.5 - (25.5 * 12.5 / 100)).ToString(), answers[2]);
+			Assert.That(answers[0], Is.EqualTo((100 - (100 * 25 / 100)).ToString()));
+			Assert.That(answers[1], Is.EqualTo((50 - (50 * 30 / 100)).ToString()));
+			Assert.That(answers[2], Is.EqualTo((25.5 - (25.5 * 12.5 / 100)).ToString()));
 		}
-    }
+	}
 }
