@@ -38,7 +38,7 @@ namespace SoulverDotNet.Tests
 			Assert.That(answers[0], Is.EqualTo("10"));
 			Assert.That(answers[1], Is.EqualTo("20"));
 			Assert.That(answers[2], Is.EqualTo("15"));
-			Assert.That(answers[3], Is.EqualTo(""));
+			Assert.That(answers[3], Is.EqualTo(null));
 			Assert.That(answers[4], Is.EqualTo("15"));
         }
 

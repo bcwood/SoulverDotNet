@@ -21,7 +21,7 @@ namespace SoulverDotNet.Core
 	        for (int i = 0; i < questions.Length; i++)
 	        {
 		        double? answer = Parse(questions[i]);
-				answers[i] = answer.ToString();
+				answers[i] = answer?.ToString();
 
 				if (answer != null)
 					MathExpression.AddVariable("line" + (i + 1), answer.Value);
