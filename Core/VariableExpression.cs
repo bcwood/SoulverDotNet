@@ -16,14 +16,14 @@ namespace SoulverDotNet.Core
             int index = expression.IndexOf("=") + 1;
             string parsedExpression = expression.Substring(index).Trim();
 
-            return MathExpression.IsMatch(parsedExpression);
+            return QuestionParser.IsMatch(parsedExpression);
         }
 
 		public static KeyValuePair<string, double?> Parse(string expression)
         {
             string[] parts = expression.Split(new[] {'='}, StringSplitOptions.RemoveEmptyEntries);
 
-			return new KeyValuePair<string, double?>(parts[0].Trim(), MathExpression.Parse(parts[1].Trim()));
+			return new KeyValuePair<string, double?>(parts[0].Trim(), QuestionParser.Parse(parts[1].Trim()));
         }
     }
 }

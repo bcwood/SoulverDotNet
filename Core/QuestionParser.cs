@@ -4,6 +4,15 @@ namespace SoulverDotNet.Core
 {
     public static class QuestionParser
     {
+		public static bool IsMatch(string question)
+		{
+			// does this question match any of the supported formats?
+			return VariableExpression.IsMatch(question) ||
+				   PercentOfExpression.IsMatch(question) ||
+				   PercentOffExpression.IsMatch(question) ||
+				   MathExpression.IsMatch(question);
+		}
+
         public static string[] Parse(string[] questions)
         {
             MathExpression.Reset();
@@ -21,7 +30,7 @@ namespace SoulverDotNet.Core
 	        return answers;
         }
 
-	    private static double? Parse(string question)
+	    public static double? Parse(string question)
         {
 			if (VariableExpression.IsMatch(question))
 			{

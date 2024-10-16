@@ -87,6 +87,19 @@ namespace SoulverDotNet.Tests
 			Assert.That(answers[1], Is.EqualTo((50 * 30 / 100).ToString()));
 			Assert.That(answers[2], Is.EqualTo((25.5 * 12.5 / 100).ToString()));
 		}
+
+        [Test]
+        public void Parse_PercentOf_Variable()
+        {
+			var questions = new string[]
+			{
+				"x = 25% of $100",
+				"x"
+			};
+
+			string[] answers = QuestionParser.Parse(questions);
+
+			Assert.That(answers[1], Is.EqualTo((100 * 25 / 100).ToString()));
 		}
 
 		[Test]
@@ -104,6 +117,20 @@ namespace SoulverDotNet.Tests
 			Assert.That(answers[0], Is.EqualTo((100 - (100 * 25 / 100)).ToString()));
 			Assert.That(answers[1], Is.EqualTo((50 - (50 * 30 / 100)).ToString()));
 			Assert.That(answers[2], Is.EqualTo((25.5 - (25.5 * 12.5 / 100)).ToString()));
+		}
+
+		[Test]
+		public void Parse_PercentOff_Variable()
+		{
+			var questions = new string[]
+			{
+				"x = 25% off $100",
+				"x"
+			};
+
+			string[] answers = QuestionParser.Parse(questions);
+
+			Assert.That(answers[1], Is.EqualTo((100 - (100 * 25 / 100)).ToString()));
 		}
 	}
 }
