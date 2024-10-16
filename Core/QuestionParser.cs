@@ -25,7 +25,7 @@ namespace SoulverDotNet.Core
         {
 			if (VariableExpression.IsMatch(question))
 			{
-				KeyValuePair<string, double> variable = VariableExpression.Parse(question);
+				KeyValuePair<string, double?> variable = VariableExpression.Parse(question);
 				MathExpression.AddVariable(variable.Key, variable.Value);
 				return variable.Value;
 			}

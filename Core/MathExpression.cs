@@ -1,5 +1,4 @@
-﻿using System;
-using dotMath;
+﻿using dotMath;
 
 namespace SoulverDotNet.Core
 {
@@ -15,21 +14,29 @@ namespace SoulverDotNet.Core
                 _compiler.Compile();
                 return true;
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
         }
 
-		public static double Parse(string expression)
+		public static double? Parse(string expression)
         {
-            _compiler.SetFunction(expression);
-			return _compiler.Calculate();
+            try
+            {
+                _compiler.SetFunction(expression);
+                return _compiler.Calculate();
+            }
+            catch 
+            {
+                return null;
+            }
         }
 
-		public static void AddVariable(string key, double value)
+		public static void AddVariable(string key, double? value)
 		{
-			_compiler.SetVariable(key, value);
+            if (value != null)
+			    _compiler.SetVariable(key, value.Value);
 		}
 
 		public static void Reset()

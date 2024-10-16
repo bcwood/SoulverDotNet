@@ -12,18 +12,18 @@ namespace SoulverDotNet.Core
         {
             if (!Regex.IsMatch(expression, REGEX_PATTERN))
                 return false;
-	        
-			int index = expression.IndexOf("=") + 1;
-	        string parsedExpression = expression.Substring(index).Trim();
 
-	        return MathExpression.IsMatch(parsedExpression);
+            int index = expression.IndexOf("=") + 1;
+            string parsedExpression = expression.Substring(index).Trim();
+
+            return MathExpression.IsMatch(parsedExpression);
         }
 
-		public static KeyValuePair<string, double> Parse(string expression)
+		public static KeyValuePair<string, double?> Parse(string expression)
         {
             string[] parts = expression.Split(new[] {'='}, StringSplitOptions.RemoveEmptyEntries);
 
-			return new KeyValuePair<string, double>(parts[0].Trim(), MathExpression.Parse(parts[1].Trim()));
+			return new KeyValuePair<string, double?>(parts[0].Trim(), MathExpression.Parse(parts[1].Trim()));
         }
     }
 }
