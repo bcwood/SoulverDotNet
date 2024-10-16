@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{99B7EF5B-1BC5-448D-9B27-17C412BDCDB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{F38E28B5-A357-437B-9C04-3FEA4E2E2928}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{92331A6D-15BD-43C8-A4B9-18181115116C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{0061E7AC-1572-429C-B044-DB22FDF165D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,12 +23,15 @@ Global
 		{F38E28B5-A357-437B-9C04-3FEA4E2E2928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38E28B5-A357-437B-9C04-3FEA4E2E2928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38E28B5-A357-437B-9C04-3FEA4E2E2928}.Release|Any CPU.Build.0 = Release|Any CPU
-		{92331A6D-15BD-43C8-A4B9-18181115116C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{92331A6D-15BD-43C8-A4B9-18181115116C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{92331A6D-15BD-43C8-A4B9-18181115116C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{92331A6D-15BD-43C8-A4B9-18181115116C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0061E7AC-1572-429C-B044-DB22FDF165D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0061E7AC-1572-429C-B044-DB22FDF165D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0061E7AC-1572-429C-B044-DB22FDF165D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0061E7AC-1572-429C-B044-DB22FDF165D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7AF77F7-10D9-4F29-A11F-9E44D3E95813}
 	EndGlobalSection
 EndGlobal
